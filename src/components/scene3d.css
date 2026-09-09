@@ -1,7 +1,7 @@
 .scene3d {
   position: absolute;
-  width: 460px;
-  height: 420px;
+  width: 620px;
+  height: 480px;
   pointer-events: none;
   opacity: 0.9;
 }
