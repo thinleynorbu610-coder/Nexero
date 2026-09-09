@@ -3,6 +3,7 @@
 // `category` must be one of: 'Web', 'Backend', 'Security', 'Systems'
 import quickbiteImage from '../assets/projects/quickbite.jpeg';
 import smartstudyImage from '../assets/projects/smartstudy.webp';
+import heritageLoomImage from '../assets/projects/heritage-loom.jpg';
 
 export const projects = [
   {
@@ -26,6 +27,7 @@ export const projects = [
     title: 'Heritage Loom',
     category: 'Web',
     status: 'In Development',
+    image: heritageLoomImage,
     description:
       'A digital cultural marketplace connecting Bhutanese artisans directly with customers beyond their physical location.',
     problem:
