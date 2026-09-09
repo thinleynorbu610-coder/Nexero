@@ -41,7 +41,13 @@
   height: 100%;
   object-fit: cover;
   object-position: top center;
-  transition: transform var(--duration-slow) var(--ease-standard);
+  filter: grayscale(1);
+  transition: transform var(--duration-slow) var(--ease-standard),
+    filter var(--duration-slow) var(--ease-standard);
+}
+
+.team-card__portrait:hover .team-card__photo {
+  filter: grayscale(0);
 }
 
 .team-card__initials {

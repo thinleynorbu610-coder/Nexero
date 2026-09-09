@@ -60,7 +60,13 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform var(--duration-slow) var(--ease-standard);
+  filter: grayscale(1);
+  transition: transform var(--duration-slow) var(--ease-standard),
+    filter var(--duration-slow) var(--ease-standard);
+}
+
+.project-card__media:hover .project-card__photo {
+  filter: grayscale(0);
 }
 
 .project-card__glyph {
