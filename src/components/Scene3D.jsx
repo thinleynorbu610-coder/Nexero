@@ -5,12 +5,13 @@ import './scene3d.css';
 const Scene3DCanvas = lazy(() => import('./Scene3DCanvas'));
 
 /**
- * One tasteful three.js element — a slowly floating, softly distorted
- * icosahedron — used sparingly (see Services.jsx) rather than everywhere.
- * Lazy-loaded so the three.js/r3f/drei bundle only downloads for visitors
- * who reach a page using it. Skipped entirely under prefers-reduced-motion
- * (it's purely decorative, and Float's rotation/bob has no reduced-motion
- * switch of its own).
+ * One tasteful three.js element — a glossy floating planet cluster (a main
+ * sphere, a tilted orbit ring, and a handful of smaller moons) — used
+ * sparingly (see Services.jsx) rather than everywhere. Lazy-loaded so the
+ * three.js/r3f/drei bundle only downloads for visitors who reach a page
+ * using it. Skipped entirely under prefers-reduced-motion (it's purely
+ * decorative, and Float's rotation/bob has no reduced-motion switch of its
+ * own).
  */
 export default function Scene3D({ className = '' }) {
   const reduced = useReducedMotion();

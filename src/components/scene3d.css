@@ -1,9 +1,18 @@
 .scene3d {
   position: absolute;
-  width: 320px;
-  height: 320px;
+  width: 460px;
+  height: 420px;
   pointer-events: none;
   opacity: 0.9;
+}
+
+.scene3d::before {
+  content: '';
+  position: absolute;
+  inset: 8%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.35) 0%, rgba(99, 102, 241, 0.12) 45%, transparent 70%);
+  filter: blur(20px);
+  z-index: -1;
 }
 
 .scene3d canvas {
@@ -12,7 +21,7 @@
 
 @media (max-width: 900px) {
   .scene3d {
-    width: 220px;
-    height: 220px;
+    width: 300px;
+    height: 280px;
   }
 }
