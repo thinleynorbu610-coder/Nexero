@@ -1,6 +1,8 @@
 // Add a new project by adding another object to this array — Projects.jsx and the
 // Home page featured section both read from here automatically.
 // `category` must be one of: 'Web', 'Backend', 'Security', 'Systems'
+import quickbiteImage from '../assets/projects/quickbite.jpeg';
+import smartstudyImage from '../assets/projects/smartstudy.webp';
 
 export const projects = [
   {
@@ -40,6 +42,7 @@ export const projects = [
     title: 'QuickBite',
     category: 'Web',
     status: 'In Development',
+    image: quickbiteImage,
     description:
       'A QR-based food ordering system that lets customers scan a code, browse a digital menu, and order without queuing.',
     problem:
@@ -56,6 +59,7 @@ export const projects = [
     title: 'SmartStudy',
     category: 'Backend',
     status: 'In Development',
+    image: smartstudyImage,
     description:
       'A gamified study planning and task management platform (Studify) helping college students organize their academic workload.',
     problem:

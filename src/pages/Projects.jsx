@@ -57,7 +57,11 @@ export default function Projects() {
               <Reveal as="article" key={project.id} delay={Math.min(i * 0.06, 0.3)} className="project-tile">
                 <div className="project-tile__media">
                   <ImageReveal fill delay={0.1}>
-                    <span>{project.title.charAt(0)}</span>
+                    {project.image ? (
+                      <img src={project.image} alt={project.title} className="project-tile__photo" />
+                    ) : (
+                      <span>{project.title.charAt(0)}</span>
+                    )}
                   </ImageReveal>
                 </div>
                 <div className="project-tile__meta">

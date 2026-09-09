@@ -87,6 +87,7 @@
 }
 
 .project-tile__media {
+  position: relative;
   aspect-ratio: 16 / 9;
   border-radius: var(--radius-sm);
   background: linear-gradient(155deg, var(--bg-dark-surface) 0%, var(--bg-deep) 100%);
@@ -94,6 +95,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
   margin-bottom: 24px;
   transition: transform var(--duration-slow) var(--ease-standard);
 }
@@ -103,6 +105,14 @@
   font-size: 3rem;
   font-weight: 800;
   color: var(--tile-ink);
+}
+
+.project-tile__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .project-tile__meta {

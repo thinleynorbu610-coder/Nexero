@@ -16,9 +16,13 @@ export default function ProjectCard({ project, index = 0, layout = 'row' }) {
         onMouseLeave={tilt.onMouseLeave}
       >
         <ImageReveal fill delay={0.1}>
-          <div className="project-card__media-inner">
-            <span className="project-card__glyph">{project.title.charAt(0)}</span>
-          </div>
+          {project.image ? (
+            <img src={project.image} alt={project.title} className="project-card__photo" />
+          ) : (
+            <div className="project-card__media-inner">
+              <span className="project-card__glyph">{project.title.charAt(0)}</span>
+            </div>
+          )}
         </ImageReveal>
       </div>
 
