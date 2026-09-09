@@ -41,7 +41,13 @@ export default function ProjectCard({ project, index = 0, layout = 'row' }) {
           ))}
         </ul>
 
-        <a href={project.link} className="project-card__link link-underline" data-cursor="View">
+        <a
+          href={project.link}
+          className="project-card__link link-underline"
+          data-cursor="View"
+          target={project.link !== '#' ? '_blank' : undefined}
+          rel={project.link !== '#' ? 'noreferrer' : undefined}
+        >
           View Project
           <ArrowUpRight size={16} />
         </a>

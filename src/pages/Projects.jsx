@@ -91,7 +91,13 @@ export default function Projects() {
                   {project.role}
                 </p>
 
-                <a href={project.link} className="link-underline project-tile__link" data-cursor="View">
+                <a
+                  href={project.link}
+                  className="link-underline project-tile__link"
+                  data-cursor="View"
+                  target={project.link !== '#' ? '_blank' : undefined}
+                  rel={project.link !== '#' ? 'noreferrer' : undefined}
+                >
                   View Project <ArrowUpRight size={15} />
                 </a>
               </Reveal>

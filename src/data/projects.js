@@ -53,7 +53,7 @@ export const projects = [
       'A QR-driven digital menu and ordering flow that removes manual order-taking and cuts waiting times.',
     technologies: ['JavaScript', 'HTML', 'CSS'],
     role: 'Development and system design.',
-    link: '#',
+    link: 'https://quickbite-canten.onrender.com',
     featured: true,
   },
   {
