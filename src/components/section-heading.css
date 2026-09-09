@@ -1,0 +1,17 @@
+.section-heading {
+  max-width: 640px;
+  margin-bottom: 56px;
+}
+
+.section-heading--center {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.section-heading__title {
+  margin-top: 18px;
+}
+
+.section-heading__desc {
+  margin-top: 20px;
+}

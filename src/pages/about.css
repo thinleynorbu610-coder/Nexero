@@ -1,0 +1,114 @@
+.about-hero {
+  padding: clamp(160px, 20vw, 220px) 0 clamp(48px, 6vw, 80px);
+}
+
+.about-hero__title {
+  margin-top: 24px;
+  max-width: 880px;
+}
+
+.section--alt {
+  background: var(--bg-dark-surface);
+}
+
+.about-row__inner {
+  display: grid;
+  grid-template-columns: 0.6fr 1.4fr;
+  gap: 48px;
+}
+
+.about-row--reverse .about-row__inner {
+  grid-template-columns: 0.6fr 1.4fr;
+}
+
+.about-row__content p {
+  max-width: 640px;
+  margin-top: 20px;
+}
+
+.values-list {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.values-list__item {
+  padding-top: 24px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.values-list__num {
+  display: block;
+  font-family: var(--font-display);
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+}
+
+.values-list__item h3 {
+  margin-bottom: 10px;
+}
+
+.about-cta {
+  text-align: center;
+}
+
+.about-cta__inner {
+  position: relative;
+  max-width: 760px;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  padding: clamp(56px, 8vw, 96px) clamp(28px, 6vw, 64px);
+  background: linear-gradient(135deg, #242129, #1b1a20);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+}
+
+.about-cta__glow {
+  position: absolute;
+  top: -20%;
+  left: 50%;
+  translate: -50% 0;
+  width: 70%;
+  aspect-ratio: 1;
+  background: radial-gradient(circle, var(--glow-violet) 0%, transparent 70%);
+  filter: blur(40px);
+  z-index: -2;
+}
+
+.about-cta__inner .wave-lines {
+  z-index: -1;
+  opacity: 0.5;
+}
+
+.animated-blob.about-cta__blob {
+  top: auto;
+  bottom: -30%;
+  right: -10%;
+  left: auto;
+  width: 55%;
+  height: 90%;
+  z-index: -1;
+}
+
+.about-cta__inner .btn {
+  margin: 28px auto 0;
+}
+
+@media (max-width: 900px) {
+  .about-row__inner {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .values-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .values-list {
+    grid-template-columns: 1fr;
+  }
+}

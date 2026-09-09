@@ -1,0 +1,62 @@
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  margin-left: -5px;
+  margin-top: -5px;
+  border-radius: 50%;
+  /* Fixed white, not the theme text color: mix-blend-mode: difference only
+     inverts reliably against any background when this stays at the extreme. */
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0;
+  mix-blend-mode: difference;
+  transition: opacity 0.2s ease, width 0.3s var(--ease-standard), height 0.3s var(--ease-standard),
+    margin 0.3s var(--ease-standard), background 0.3s var(--ease-standard);
+}
+
+.custom-cursor--visible {
+  opacity: 1;
+}
+
+.custom-cursor--interactive {
+  width: 44px;
+  height: 44px;
+  margin-left: -22px;
+  margin-top: -22px;
+  background: transparent;
+  border: 1px solid #ffffff;
+}
+
+.custom-cursor--label {
+  width: 76px;
+  height: 76px;
+  margin-left: -38px;
+  margin-top: -38px;
+  background: var(--accent-violet);
+  /* A readable label needs a stable, predictable color — not the inverting
+     difference blend the dot/ring states rely on. */
+  mix-blend-mode: normal;
+  box-shadow: 0 10px 34px rgba(139, 92, 246, 0.5);
+}
+
+.custom-cursor__label {
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+@media (max-width: 900px) {
+  .custom-cursor {
+    display: none;
+  }
+}

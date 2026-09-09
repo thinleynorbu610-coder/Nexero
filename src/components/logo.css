@@ -1,0 +1,17 @@
+.logo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-link__mark {
+  width: auto;
+}
+
+.logo-link__word {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.3rem;
+  letter-spacing: -0.01em;
+  color: var(--heading-color);
+}

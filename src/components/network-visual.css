@@ -1,0 +1,49 @@
+.network-visual {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  margin-inline: auto;
+  perspective: 1000px;
+}
+
+.network-visual__stage {
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.network-visual__svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.network-visual__pulse {
+  animation: dashMove 3.6s linear infinite;
+}
+
+.network-visual__node {
+  animation: pulseGlow 3.2s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.network-visual__core-glow {
+  animation: pulseGlow 4.5s ease-in-out infinite;
+  transform-origin: 410px 185px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .network-visual__stage {
+    transition: none;
+  }
+  .network-visual__pulse,
+  .network-visual__node,
+  .network-visual__core-glow {
+    animation: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .network-visual {
+    max-width: 420px;
+  }
+}

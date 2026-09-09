@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 64" fill="none">
+  <rect x="2" y="8" width="48" height="48" rx="12" fill="#F5F5F5"/>
+  <path d="M17 42V22h5.6l13 13.4V22H41v20h-5.6L22.4 28.6V42H17z" fill="#2F2D31"/>
+  <text x="66" y="40" font-family="Manrope, sans-serif" font-size="26" font-weight="800" fill="#F5F5F5" letter-spacing="0.5">Nexora</text>
+</svg>

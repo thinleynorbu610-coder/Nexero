@@ -1,0 +1,166 @@
+.section--alt {
+  background: var(--bg-dark-surface);
+}
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: 24px 64px;
+}
+
+.intro-grid__headline {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+}
+
+.intro-grid__desc {
+  grid-column: 2;
+}
+
+.intro-grid__desc p {
+  max-width: 520px;
+}
+
+.intro-grid__link {
+  display: inline-block;
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.section-heading-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.section-heading-row__cta {
+  margin-bottom: 56px;
+  flex-shrink: 0;
+}
+
+.projects-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.principles-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.principle {
+  padding-top: 24px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.principle__index {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.principle__title {
+  margin-bottom: 12px;
+}
+
+.cta-section {
+  text-align: center;
+}
+
+.cta-section__inner {
+  position: relative;
+  max-width: 860px;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  padding: clamp(56px, 8vw, 96px) clamp(28px, 6vw, 64px);
+  background: linear-gradient(135deg, #242129, #1b1a20);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+}
+
+.cta-section__glow {
+  position: absolute;
+  top: -20%;
+  left: 50%;
+  translate: -50% 0;
+  width: 70%;
+  aspect-ratio: 1;
+  background: radial-gradient(circle, var(--glow-violet) 0%, transparent 70%);
+  filter: blur(40px);
+  z-index: -2;
+}
+
+.cta-section__inner .wave-lines {
+  z-index: -1;
+  opacity: 0.5;
+}
+
+.animated-blob.cta-section__blob {
+  top: auto;
+  bottom: -30%;
+  left: -10%;
+  width: 55%;
+  height: 90%;
+  z-index: -1;
+}
+
+.cta-section__accent {
+  color: var(--accent-soft-violet);
+}
+
+.cta-section__sub {
+  margin: 24px auto 40px;
+  max-width: 520px;
+}
+
+.cta-section__inner .btn {
+  margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+  .intro-grid {
+    grid-template-columns: 1fr;
+  }
+  .intro-grid__headline,
+  .intro-grid__desc {
+    grid-column: 1;
+  }
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .principles-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .services-grid,
+  .team-grid,
+  .principles-grid {
+    grid-template-columns: 1fr;
+  }
+  .section-heading-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

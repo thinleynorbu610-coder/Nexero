@@ -1,0 +1,70 @@
+:root {
+  /* Surfaces — near-black with a cold blue-violet undertone */
+  --bg-primary: #0c0b12;
+  --bg-deep: #050409;
+  --bg-dark-surface: #09080e;
+  --bg-card: rgba(255, 255, 255, 0.045);
+  --bg-card-hover: rgba(255, 255, 255, 0.075);
+  --bg-light: #f5f5f5;
+
+  /* Text */
+  --text-primary: #f5f3fa;
+  --heading-color: #ffffff;
+  --text-secondary: #aaa7b3;
+  --text-muted: #77737f;
+
+  /* Lines / overlays */
+  --border-subtle: rgba(255, 255, 255, 0.09);
+  --border-bright: rgba(255, 255, 255, 0.16);
+  --tile-ink: rgba(245, 243, 250, 0.75);
+  --card-highlight: rgba(255, 255, 255, 0.06);
+  --grid-line: rgba(167, 139, 250, 0.05);
+
+  /* Navbar / glass blur surfaces */
+  --bg-blur: rgba(18, 17, 22, 0.65);
+  --bg-blur-strong: rgba(29, 28, 33, 0.97);
+  --blur-glass: 18px;
+  --blur-nav: 20px;
+
+  /* Accents — used sparingly */
+  --accent-violet: #8b5cf6;
+  --accent-indigo: #6366f1;
+  --accent-soft-violet: #a78bfa;
+
+  /* Ambient glow colors — brighter, for a more vivid futuristic feel
+     against the darker surfaces above */
+  --glow-violet: rgba(139, 92, 246, 0.3);
+  --glow-indigo: rgba(99, 102, 241, 0.28);
+  --glow-violet-strong: rgba(139, 92, 246, 0.5);
+  --network-line: rgba(167, 139, 250, 0.35);
+
+  /* Status */
+  --color-danger: #f5a3a3;
+  --color-danger-border: #d97a7a;
+
+  /* Type */
+  --font-display: 'Manrope', 'Inter', sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Radius */
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+
+  /* Motion */
+  --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+  /* Mirrors lib/motion.js's EASE_CINEMATIC — slower, more deliberate,
+     for continuous scroll-linked motion rather than snappy UI feedback. */
+  --ease-cinematic: cubic-bezier(0.83, 0, 0.17, 1);
+  --duration-fast: 0.2s;
+  --duration-base: 0.45s;
+  --duration-slow: 0.8s;
+  --duration-cinematic: 1.4s;
+
+  /* Layout */
+  --container-max: 1280px;
+  --gutter: clamp(20px, 5vw, 80px);
+
+  color-scheme: dark;
+}

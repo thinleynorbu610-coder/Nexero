@@ -1,0 +1,9 @@
+/* Used by the hero network visual only — see NetworkVisual.jsx. */
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.85; }
+}
+
+@keyframes dashMove {
+  to { stroke-dashoffset: -200; }
+}

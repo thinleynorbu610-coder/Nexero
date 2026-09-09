@@ -1,0 +1,158 @@
+.team-card__link {
+  display: block;
+  transition: transform var(--duration-base) var(--ease-standard);
+}
+
+.team-card__link:hover {
+  transform: translateY(-5px);
+}
+
+.team-card__portrait {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: linear-gradient(165deg, var(--bg-card) 0%, var(--bg-deep) 100%);
+  -webkit-backdrop-filter: blur(var(--blur-glass));
+  backdrop-filter: blur(var(--blur-glass));
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color var(--duration-base) var(--ease-standard),
+    box-shadow var(--duration-base) var(--ease-standard), transform 0.15s ease-out;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.team-card--lead .team-card__portrait {
+  border-color: var(--border-bright);
+}
+
+.team-card__link:hover .team-card__portrait {
+  border-color: var(--glow-violet-strong);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
+}
+
+.team-card__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform var(--duration-slow) var(--ease-standard);
+}
+
+.team-card__initials {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: 800;
+  color: var(--tile-ink);
+  transition: transform var(--duration-slow) var(--ease-standard);
+}
+
+.team-card__link:hover .team-card__photo,
+.team-card__link:hover .team-card__initials {
+  transform: scale(1.08);
+}
+
+.team-card__overlay {
+  position: absolute;
+  inset: 0;
+  /* Dark scrim for legibility, with a soft violet undertone rising from
+     the bottom — independent of page theme, this always sits on the
+     portrait's own gradient tile. */
+  background: linear-gradient(to top, rgba(24, 23, 28, 0.94) 0%, rgba(139, 92, 246, 0.16) 45%, transparent 100%);
+}
+
+.team-card__lead-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--bg-deep);
+  background: var(--text-primary);
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
+.team-card__reveal {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 76px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity var(--duration-base) var(--ease-standard),
+    transform var(--duration-base) var(--ease-standard);
+}
+
+.team-card__link:hover .team-card__reveal,
+.team-card__link:focus-visible .team-card__reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.team-card__tagline {
+  /* Sits on the always-dark scrim overlay above, independent of page theme */
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+
+.team-card__social {
+  display: flex;
+  gap: 10px;
+}
+
+.team-card__social a {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--text-primary);
+  transition: background var(--duration-fast) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard);
+}
+
+.team-card__social a:hover {
+  background: rgba(255, 255, 255, 0.24);
+  transform: scale(1.1);
+}
+
+.team-card__info {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-top: 18px;
+}
+
+.team-card__name {
+  margin-bottom: 6px;
+}
+
+.team-card__role {
+  color: var(--accent-soft-violet);
+}
+
+.team-card__view {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  transition: gap var(--duration-fast) var(--ease-standard), color var(--duration-fast) var(--ease-standard);
+}
+
+.team-card__link:hover .team-card__view {
+  color: var(--text-primary);
+  gap: 9px;
+}

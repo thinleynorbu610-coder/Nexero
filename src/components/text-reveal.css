@@ -1,0 +1,22 @@
+.text-reveal__mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.08em;
+  margin-right: 0.26em;
+}
+
+.text-reveal__mask:last-child {
+  margin-right: 0;
+}
+
+.text-reveal__word {
+  display: inline-block;
+}
+
+.text-reveal__word--accent {
+  background: linear-gradient(90deg, #ffffff, var(--accent-soft-violet));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}

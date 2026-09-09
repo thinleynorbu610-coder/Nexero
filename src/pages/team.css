@@ -1,0 +1,30 @@
+.team-hero {
+  padding: clamp(160px, 20vw, 200px) 0 clamp(48px, 6vw, 72px);
+}
+
+.team-hero__sub {
+  margin-top: 20px;
+  max-width: 480px;
+}
+
+.team-page__grid-section {
+  padding-top: 0;
+}
+
+.team-page__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 1024px) {
+  .team-page__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .team-page__grid {
+    grid-template-columns: 1fr;
+  }
+}

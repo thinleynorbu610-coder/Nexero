@@ -1,0 +1,18 @@
+.scene3d {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+.scene3d canvas {
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .scene3d {
+    width: 220px;
+    height: 220px;
+  }
+}
