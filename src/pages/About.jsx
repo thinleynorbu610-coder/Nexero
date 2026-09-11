@@ -26,6 +26,12 @@ export default function About() {
           <TextReveal as="h1" className="h-display about-hero__title" delay={0.08} inView={false}>
             More Than Code. We Build Possibilities.
           </TextReveal>
+          <Reveal delay={0.2}>
+            <p className="body-lg about-hero__sub">
+              Four specialists — one team — building secure, scalable software with the
+              craft of people who care how it&rsquo;s built, not just that it ships.
+            </p>
+          </Reveal>
         </div>
       </section>
 
