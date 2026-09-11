@@ -6,7 +6,7 @@ import Reveal from '../components/Reveal';
 import TextReveal from '../components/TextReveal';
 import PageGlow from '../components/PageGlow';
 import Button from '../components/Button';
-import robotImg from '../assets/hero/robot.webp';
+import handImg from '../assets/hero/hand.webp';
 import { services } from '../data/services';
 import './services.css';
 
@@ -27,7 +27,7 @@ export default function Services() {
         <PageGlow />
 
         <div className="services-hero__visual" aria-hidden="true">
-          <img src={robotImg} alt="" className="services-hero__robot" />
+          <img src={handImg} alt="" className="services-hero__robot" />
         </div>
 
         <div className="container">
