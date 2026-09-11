@@ -36,7 +36,7 @@
   position: absolute;
   z-index: 0;
   right: -4%;
-  bottom: -8%;
+  bottom: 6%;
   width: min(50%, 820px);
   pointer-events: none;
 }
