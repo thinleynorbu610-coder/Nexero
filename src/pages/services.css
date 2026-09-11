@@ -50,6 +50,7 @@
 
 @media (max-width: 900px) {
   .services-hero {
+    display: block;
     min-height: 0;
   }
   .services-hero__visual {
@@ -58,7 +59,7 @@
     bottom: auto;
     width: 78%;
     max-width: 360px;
-    margin: 32px auto 0;
+    margin: 0 auto 24px;
   }
   .services-hero__copy {
     max-width: none;
