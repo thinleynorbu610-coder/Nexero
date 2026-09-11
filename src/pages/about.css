@@ -12,6 +12,14 @@
   max-width: 560px;
 }
 
+/* The hero already carries its own bottom padding — without this, the
+   next section's top padding stacks on top of it for a much bigger gap
+   than every other secondary page (Team/Projects/Services/Contact all
+   zero this out the same way). */
+.about-hero + .section {
+  padding-top: 0;
+}
+
 .section--alt {
   background: var(--bg-dark-surface);
 }
