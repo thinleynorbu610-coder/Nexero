@@ -5,7 +5,6 @@ import { Plus } from 'lucide-react';
 import Reveal from '../components/Reveal';
 import TextReveal from '../components/TextReveal';
 import PageGlow from '../components/PageGlow';
-import Scene3D from '../components/Scene3D';
 import { services } from '../data/services';
 import './services.css';
 
@@ -20,7 +19,6 @@ export default function Services() {
     <div className="services-page">
       <section className="services-hero page-hero">
         <PageGlow />
-        <Scene3D className="services-hero__scene" />
         <div className="container">
           <Reveal>
             <p className="eyebrow">Services</p>
