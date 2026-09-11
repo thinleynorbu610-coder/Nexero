@@ -1,5 +1,17 @@
 .team-hero {
   padding: clamp(160px, 20vw, 200px) 0 clamp(48px, 6vw, 72px);
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+
+.team-hero .container {
+  width: 100%;
+}
+
+.team-hero__title {
+  max-width: 480px;
 }
 
 .team-hero__sub {
@@ -7,8 +19,45 @@
   max-width: 480px;
 }
 
+.team-hero__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.team-hero__visual {
+  position: relative;
+  width: 108%;
+  justify-self: end;
+  margin-right: -48px;
+}
+
+.team-hero__photo {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .team-page__grid-section {
-  padding-top: 0;
+  padding-top: clamp(48px, 6vw, 72px);
+}
+
+@media (max-width: 900px) {
+  .team-hero {
+    min-height: 0;
+  }
+  .team-hero__grid {
+    grid-template-columns: 1fr;
+  }
+  .team-hero__visual {
+    order: -1;
+    width: 100%;
+    justify-self: auto;
+    margin-right: 0;
+    max-width: 420px;
+    margin: 0 auto 24px;
+  }
 }
 
 .team-page__grid {

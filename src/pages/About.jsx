@@ -4,6 +4,7 @@ import Button from '../components/Button';
 import WaveLines from '../components/WaveLines';
 import AnimatedBlob from '../components/AnimatedBlob';
 import PageGlow from '../components/PageGlow';
+import aboutNxImg from '../assets/hero/about-nx.webp';
 import './about.css';
 
 const values = [
@@ -19,19 +20,25 @@ export default function About() {
     <div className="about-page">
       <section className="about-hero page-hero">
         <PageGlow />
-        <div className="container">
-          <Reveal>
-            <p className="eyebrow">About Nexora</p>
-          </Reveal>
-          <TextReveal as="h1" className="h-display about-hero__title" delay={0.08} inView={false}>
-            More Than Code. We Build Possibilities.
-          </TextReveal>
-          <Reveal delay={0.2}>
-            <p className="body-lg about-hero__sub">
-              Four specialists — one team — building secure, scalable software with the
-              craft of people who care how it&rsquo;s built, not just that it ships.
-            </p>
-          </Reveal>
+        <div className="container about-hero__grid">
+          <div className="about-hero__copy">
+            <Reveal>
+              <p className="eyebrow">About Nexora</p>
+            </Reveal>
+            <TextReveal as="h1" className="h-display about-hero__title" delay={0.08} inView={false}>
+              More Than Code. We Build Possibilities.
+            </TextReveal>
+            <Reveal delay={0.2}>
+              <p className="body-lg about-hero__sub">
+                Four specialists — one team — building secure, scalable software with the
+                craft of people who care how it&rsquo;s built, not just that it ships.
+              </p>
+            </Reveal>
+          </div>
+
+          <div className="about-hero__visual" aria-hidden="true">
+            <img src={aboutNxImg} alt="" className="about-hero__nx-orb" />
+          </div>
         </div>
       </section>
 

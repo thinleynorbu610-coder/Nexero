@@ -4,12 +4,20 @@
 
 .contact-hero {
   padding: clamp(160px, 20vw, 200px) 0 clamp(48px, 6vw, 72px);
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+
+.contact-hero .container {
+  width: 100%;
 }
 
 .contact-section {
   position: relative;
   z-index: 1;
-  padding-top: 0;
+  padding-top: clamp(48px, 6vw, 72px);
 }
 
 .contact-grid {
@@ -133,6 +141,9 @@
 }
 
 @media (max-width: 900px) {
+  .contact-hero {
+    min-height: 0;
+  }
   .contact-grid {
     grid-template-columns: 1fr;
     gap: 40px;

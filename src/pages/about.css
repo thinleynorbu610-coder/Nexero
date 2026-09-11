@@ -1,10 +1,18 @@
 .about-hero {
   padding: clamp(160px, 20vw, 220px) 0 clamp(48px, 6vw, 80px);
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+
+.about-hero .container {
+  width: 100%;
 }
 
 .about-hero__title {
   margin-top: 24px;
-  max-width: 880px;
+  max-width: 560px;
 }
 
 .about-hero__sub {
@@ -12,12 +20,51 @@
   max-width: 560px;
 }
 
-/* The hero already carries its own bottom padding — without this, the
-   next section's top padding stacks on top of it for a much bigger gap
-   than every other secondary page (Team/Projects/Services/Contact all
-   zero this out the same way). */
+.about-hero__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.about-hero__visual {
+  position: relative;
+  width: 108%;
+  justify-self: end;
+  margin-right: -48px;
+  margin-top: -40px;
+}
+
+.about-hero__nx-orb {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* The hero already carries its own bottom padding, and now that it's a
+   full-height (100vh) hero its content is vertically centered — so the
+   next section needs its own modest top padding rather than the full
+   .section default (which stacked into too big a gap) or zero (which
+   left the heading flush against the hero boundary with no breathing
+   room at all). */
 .about-hero + .section {
-  padding-top: 0;
+  padding-top: clamp(48px, 6vw, 72px);
+}
+
+@media (max-width: 900px) {
+  .about-hero {
+    min-height: 0;
+  }
+  .about-hero__grid {
+    grid-template-columns: 1fr;
+  }
+  .about-hero__visual {
+    order: -1;
+    width: 100%;
+    justify-self: auto;
+    max-width: 420px;
+    margin: 0 auto 24px;
+  }
 }
 
 .section--alt {
