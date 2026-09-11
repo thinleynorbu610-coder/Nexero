@@ -5,8 +5,14 @@ import { Plus } from 'lucide-react';
 import Reveal from '../components/Reveal';
 import TextReveal from '../components/TextReveal';
 import PageGlow from '../components/PageGlow';
+import Button from '../components/Button';
+import robotImg from '../assets/hero/robot.webp';
 import { services } from '../data/services';
 import './services.css';
+
+const scrollToServicesList = () => {
+  document.getElementById('services-list')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+};
 
 export default function Services() {
   const [openId, setOpenId] = useState(services[0].id);
@@ -19,17 +25,33 @@ export default function Services() {
     <div className="services-page">
       <section className="services-hero page-hero">
         <PageGlow />
-        <div className="container">
-          <Reveal>
-            <p className="eyebrow">Services</p>
-          </Reveal>
-          <TextReveal as="h1" className="h-display" delay={0.08} inView={false}>
-            Technology That Moves Ideas Forward.
-          </TextReveal>
+        <div className="container services-hero__grid">
+          <div className="services-hero__copy">
+            <Reveal>
+              <p className="eyebrow">Services</p>
+            </Reveal>
+            <TextReveal as="h1" className="h-display" delay={0.08} inView={false} accentCount={1}>
+              Technology That Moves Ideas Forward.
+            </TextReveal>
+            <Reveal delay={0.2}>
+              <p className="body-lg services-hero__sub">
+                We build innovative digital solutions that turn ideas into real-world impact.
+              </p>
+            </Reveal>
+            <Reveal delay={0.3}>
+              <Button as="button" variant="primary" onClick={scrollToServicesList}>
+                Our Services
+              </Button>
+            </Reveal>
+          </div>
+
+          <div className="services-hero__visual" aria-hidden="true">
+            <img src={robotImg} alt="" className="services-hero__robot" />
+          </div>
         </div>
       </section>
 
-      <section className="section services-list-section">
+      <section className="section services-list-section" id="services-list">
         <div className="container">
           <ul className="services-list">
             {services.map((service, i) => {

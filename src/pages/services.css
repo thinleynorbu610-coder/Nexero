@@ -1,19 +1,71 @@
 .services-hero {
-  padding: clamp(160px, 20vw, 200px) 0 clamp(48px, 6vw, 64px);
+  padding: clamp(140px, 16vw, 180px) 0 clamp(48px, 6vw, 64px);
+}
+
+.services-hero__grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.services-hero__copy {
+  max-width: 720px;
 }
 
 .services-hero h1 {
   max-width: 780px;
+  margin-top: 24px;
 }
 
-.services-hero__scene {
-  top: 8%;
-  right: 4%;
+.services-hero__sub {
+  margin-top: 24px;
+  max-width: 460px;
+}
+
+.services-hero__copy .btn {
+  margin-top: 40px;
+}
+
+.services-hero__visual {
+  position: relative;
+}
+
+.services-hero__robot {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 30px 60px rgba(99, 102, 241, 0.35));
+  animation: services-robot-float 5s ease-in-out infinite;
+}
+
+@keyframes services-robot-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .services-hero__robot {
+    animation: none;
+  }
 }
 
 @media (max-width: 900px) {
-  .services-hero__scene {
-    display: none;
+  .services-hero__grid {
+    grid-template-columns: 1fr;
+  }
+  .services-hero__visual {
+    order: -1;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+  .services-hero__copy {
+    max-width: none;
   }
 }
 
