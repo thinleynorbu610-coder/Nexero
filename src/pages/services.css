@@ -1,12 +1,14 @@
 .services-hero {
   padding: clamp(140px, 16vw, 180px) 0 clamp(48px, 6vw, 64px);
+  min-height: clamp(560px, 62vw, 700px);
+  display: flex;
+  align-items: center;
 }
 
-.services-hero__grid {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 48px;
-  align-items: center;
+.services-hero .container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
 }
 
 .services-hero__copy {
@@ -27,15 +29,23 @@
   margin-top: 40px;
 }
 
+/* Bleeds past the container to the section's own edge — cropped there by
+   .page-hero's overflow: hidden, the same "hangs off the frame" look as
+   the reference art, rather than being boxed neatly into a grid column. */
 .services-hero__visual {
-  position: relative;
+  position: absolute;
+  z-index: 0;
+  right: -4%;
+  bottom: -8%;
+  width: min(60%, 980px);
+  pointer-events: none;
 }
 
 .services-hero__robot {
   display: block;
   width: 100%;
   height: auto;
-  filter: drop-shadow(0 30px 60px rgba(99, 102, 241, 0.35));
+  filter: drop-shadow(0 40px 70px rgba(79, 70, 229, 0.4));
   animation: services-robot-float 5s ease-in-out infinite;
 }
 
@@ -56,13 +66,16 @@
 }
 
 @media (max-width: 900px) {
-  .services-hero__grid {
-    grid-template-columns: 1fr;
+  .services-hero {
+    min-height: 0;
   }
   .services-hero__visual {
-    order: -1;
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: 78%;
     max-width: 360px;
-    margin: 0 auto;
+    margin: 32px auto 0;
   }
   .services-hero__copy {
     max-width: none;

@@ -25,7 +25,12 @@ export default function Services() {
     <div className="services-page">
       <section className="services-hero page-hero">
         <PageGlow />
-        <div className="container services-hero__grid">
+
+        <div className="services-hero__visual" aria-hidden="true">
+          <img src={robotImg} alt="" className="services-hero__robot" />
+        </div>
+
+        <div className="container">
           <div className="services-hero__copy">
             <Reveal>
               <p className="eyebrow">Services</p>
@@ -43,10 +48,6 @@ export default function Services() {
                 Our Services
               </Button>
             </Reveal>
-          </div>
-
-          <div className="services-hero__visual" aria-hidden="true">
-            <img src={robotImg} alt="" className="services-hero__robot" />
           </div>
         </div>
       </section>
