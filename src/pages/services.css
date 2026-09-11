@@ -37,7 +37,7 @@
   z-index: 0;
   right: -4%;
   bottom: -8%;
-  width: min(60%, 980px);
+  width: min(50%, 820px);
   pointer-events: none;
 }
 
@@ -46,23 +46,6 @@
   width: 100%;
   height: auto;
   filter: drop-shadow(0 40px 70px rgba(79, 70, 229, 0.4));
-  animation: services-robot-float 5s ease-in-out infinite;
-}
-
-@keyframes services-robot-float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-14px);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .services-hero__robot {
-    animation: none;
-  }
 }
 
 @media (max-width: 900px) {
