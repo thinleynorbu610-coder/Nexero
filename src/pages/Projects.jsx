@@ -4,6 +4,7 @@ import Reveal from '../components/Reveal';
 import TextReveal from '../components/TextReveal';
 import ImageReveal from '../components/ImageReveal';
 import PageGlow from '../components/PageGlow';
+import projectsIllustration from '../assets/hero/projects-illustration.webp';
 import { projects, categories } from '../data/projects';
 import './projects.css';
 
@@ -19,19 +20,25 @@ export default function Projects() {
     <div className="projects-page">
       <section className="projects-hero page-hero">
         <PageGlow />
-        <div className="container">
-          <Reveal>
-            <p className="eyebrow">Our Work</p>
-          </Reveal>
-          <TextReveal as="h1" className="h-display" delay={0.08} inView={false}>
-            Projects
-          </TextReveal>
-          <Reveal delay={0.16}>
-            <p className="body-lg projects-hero__sub">
-              A look at what Nexora has been building — systems designed around
-              the people who use them.
-            </p>
-          </Reveal>
+        <div className="container projects-hero__grid">
+          <div className="projects-hero__copy">
+            <Reveal>
+              <p className="eyebrow">Our Work</p>
+            </Reveal>
+            <TextReveal as="h1" className="h-display" delay={0.08} inView={false}>
+              Projects
+            </TextReveal>
+            <Reveal delay={0.16}>
+              <p className="body-lg projects-hero__sub">
+                A look at what Nexora has been building — systems designed around
+                the people who use them.
+              </p>
+            </Reveal>
+          </div>
+
+          <div className="projects-hero__visual" aria-hidden="true">
+            <img src={projectsIllustration} alt="" className="projects-hero__illustration" />
+          </div>
         </div>
       </section>
 

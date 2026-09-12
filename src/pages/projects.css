@@ -15,8 +15,42 @@
   max-width: 520px;
 }
 
+.projects-hero__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.projects-hero__visual {
+  position: relative;
+  width: 108%;
+  justify-self: end;
+  margin-right: -48px;
+}
+
+.projects-hero__illustration {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .projects-list-section {
   padding-top: clamp(48px, 6vw, 64px);
+}
+
+@media (max-width: 900px) {
+  .projects-hero__grid {
+    grid-template-columns: 1fr;
+  }
+  .projects-hero__visual {
+    order: -1;
+    width: 100%;
+    justify-self: auto;
+    margin-right: 0;
+    max-width: 420px;
+    margin: 0 auto 24px;
+  }
 }
 
 .filter-bar {
