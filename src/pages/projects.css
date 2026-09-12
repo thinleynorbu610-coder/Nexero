@@ -27,7 +27,7 @@
   width: 108%;
   justify-self: end;
   margin-right: -48px;
-  padding: 32px;
+  overflow: hidden;
   border-radius: var(--radius-lg);
   background: linear-gradient(155deg, var(--bg-card) 0%, var(--bg-deep) 100%);
   border: 1px solid var(--border-subtle);

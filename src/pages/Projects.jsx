@@ -43,7 +43,6 @@ export default function Projects() {
               className="projects-hero__illustration"
               src={robotHandshakeVideo}
               autoPlay={!reducedMotion}
-              loop
               muted
               playsInline
             />
