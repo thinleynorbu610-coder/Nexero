@@ -27,18 +27,13 @@
   width: 108%;
   justify-self: end;
   margin-right: -48px;
-  overflow: hidden;
-  border-radius: var(--radius-lg);
-  background: linear-gradient(155deg, var(--bg-card) 0%, var(--bg-deep) 100%);
-  border: 1px solid var(--border-subtle);
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
-  box-sizing: border-box;
 }
 
 .projects-hero__illustration {
   display: block;
   width: 100%;
   height: auto;
+  filter: drop-shadow(0 30px 60px rgba(79, 70, 229, 0.35));
 }
 
 .projects-list-section {

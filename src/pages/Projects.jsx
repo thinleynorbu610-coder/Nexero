@@ -4,14 +4,12 @@ import Reveal from '../components/Reveal';
 import TextReveal from '../components/TextReveal';
 import ImageReveal from '../components/ImageReveal';
 import PageGlow from '../components/PageGlow';
-import useReducedMotion from '../hooks/useReducedMotion';
-import robotHandshakeVideo from '../assets/hero/robot-handshake.mp4';
+import projectsIllustration from '../assets/hero/projects-illustration-2.webp';
 import { projects, categories } from '../data/projects';
 import './projects.css';
 
 export default function Projects() {
   const [active, setActive] = useState('All');
-  const reducedMotion = useReducedMotion();
 
   const filtered = useMemo(
     () => (active === 'All' ? projects : projects.filter((p) => p.category === active)),
@@ -39,13 +37,7 @@ export default function Projects() {
           </div>
 
           <div className="projects-hero__visual" aria-hidden="true">
-            <video
-              className="projects-hero__illustration"
-              src={robotHandshakeVideo}
-              autoPlay={!reducedMotion}
-              muted
-              playsInline
-            />
+            <img src={projectsIllustration} alt="" className="projects-hero__illustration" />
           </div>
         </div>
       </section>
