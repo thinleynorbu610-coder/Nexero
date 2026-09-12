@@ -56,7 +56,7 @@ export default function Contact() {
           <Reveal>
             <p className="eyebrow">Contact</p>
           </Reveal>
-          <TextReveal as="h1" className="h-display" delay={0.08} inView={false}>
+          <TextReveal as="h1" className="h-display contact-hero__title" delay={0.08} inView={false}>
             {"Let’s Build Something Meaningful."}
           </TextReveal>
         </div>

@@ -14,6 +14,10 @@
   width: 100%;
 }
 
+.contact-hero__title {
+  max-width: 640px;
+}
+
 .contact-section {
   position: relative;
   z-index: 1;
