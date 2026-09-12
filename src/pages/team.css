@@ -31,6 +31,12 @@
   width: 108%;
   justify-self: end;
   margin-right: -48px;
+  padding: 32px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(155deg, var(--bg-card) 0%, var(--bg-deep) 100%);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
+  box-sizing: border-box;
 }
 
 .team-hero__photo {
