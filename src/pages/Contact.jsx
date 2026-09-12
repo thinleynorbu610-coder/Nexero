@@ -4,6 +4,7 @@ import Reveal from '../components/Reveal';
 import TextReveal from '../components/TextReveal';
 import Button from '../components/Button';
 import PageGlow from '../components/PageGlow';
+import contactIllustration from '../assets/hero/contact-illustration.webp';
 import './contact.css';
 
 const initialForm = { name: '', email: '', subject: '', message: '' };
@@ -52,13 +53,19 @@ export default function Contact() {
     <div className="contact-page">
       <section className="contact-hero page-hero">
         <PageGlow />
-        <div className="container">
-          <Reveal>
-            <p className="eyebrow">Contact</p>
-          </Reveal>
-          <TextReveal as="h1" className="h-display contact-hero__title" delay={0.08} inView={false}>
-            {"Let’s Build Something Meaningful."}
-          </TextReveal>
+        <div className="container contact-hero__grid">
+          <div className="contact-hero__copy">
+            <Reveal>
+              <p className="eyebrow">Contact</p>
+            </Reveal>
+            <TextReveal as="h1" className="h-display contact-hero__title" delay={0.08} inView={false}>
+              {"Let’s Build Something Meaningful."}
+            </TextReveal>
+          </div>
+
+          <div className="contact-hero__visual" aria-hidden="true">
+            <img src={contactIllustration} alt="" className="contact-hero__illustration" />
+          </div>
         </div>
       </section>
 

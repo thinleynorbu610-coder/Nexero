@@ -18,6 +18,46 @@
   max-width: 640px;
 }
 
+.contact-hero__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.contact-hero__visual {
+  position: relative;
+  width: 108%;
+  justify-self: end;
+  margin-right: -48px;
+  padding: 32px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(155deg, var(--bg-card) 0%, var(--bg-deep) 100%);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
+  box-sizing: border-box;
+}
+
+.contact-hero__illustration {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 900px) {
+  .contact-hero__grid {
+    grid-template-columns: 1fr;
+  }
+  .contact-hero__visual {
+    order: -1;
+    width: 100%;
+    justify-self: auto;
+    margin-right: 0;
+    max-width: 420px;
+    margin: 0 auto 24px;
+  }
+}
+
 .contact-section {
   position: relative;
   z-index: 1;
