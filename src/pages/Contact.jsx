@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Github, Linkedin, Mail, CheckCircle2 } from 'lucide-react';
+import { Github, Linkedin, Mail, CheckCircle2, MapPin, ArrowUpRight } from 'lucide-react';
 import Reveal from '../components/Reveal';
 import TextReveal from '../components/TextReveal';
 import Button from '../components/Button';
@@ -8,6 +8,11 @@ import contactIllustration from '../assets/hero/contact-illustration.webp';
 import './contact.css';
 
 const initialForm = { name: '', email: '', subject: '', message: '' };
+
+// Searched by name rather than coordinates so Google pins the campus itself.
+const LOCATION_QUERY = 'Gyalpozhing College of Information Technology, Kabesa, Bhutan';
+const MAP_EMBED_URL = `https://www.google.com/maps?q=${encodeURIComponent(LOCATION_QUERY)}&z=15&output=embed`;
+const MAP_DIRECTIONS_URL = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(LOCATION_QUERY)}`;
 
 function validate(values) {
   const errors = {};
@@ -82,6 +87,15 @@ export default function Contact() {
               <a href="mailto:hello@nexora.example" className="link-underline">
                 hello@nexora.example
               </a>
+            </div>
+
+            <div className="contact-info__block">
+              <p className="label">Location</p>
+              <address className="contact-info__address">
+                Gyalpozhing College of Information Technology
+                <br />
+                Kabesa, Bhutan
+              </address>
             </div>
 
             <div className="contact-info__block">
@@ -195,6 +209,48 @@ export default function Contact() {
                   </Button>
                 </form>
               )}
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="section contact-location">
+        <div className="container">
+          <Reveal>
+            <p className="eyebrow">Where We Are</p>
+            <h2 className="h-lg contact-location__title">Find us in Kabesa, Bhutan.</h2>
+          </Reveal>
+
+          <Reveal delay={0.1} className="contact-map">
+            <iframe
+              className="contact-map__frame"
+              src={MAP_EMBED_URL}
+              title="Map showing Nexora at Gyalpozhing College of Information Technology, Kabesa, Bhutan"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
+
+            <div className="contact-map__card">
+              <span className="contact-map__icon" aria-hidden="true">
+                <MapPin size={20} />
+              </span>
+              <div>
+                <p className="contact-map__name">Nexora HQ</p>
+                <p className="contact-map__address">
+                  Gyalpozhing College of Information Technology
+                  <br />
+                  Kabesa, Bhutan
+                </p>
+                <a
+                  href={MAP_DIRECTIONS_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="link-underline contact-map__link"
+                >
+                  Get Directions <ArrowUpRight size={15} />
+                </a>
+              </div>
+            </div>
           </Reveal>
         </div>
       </section>

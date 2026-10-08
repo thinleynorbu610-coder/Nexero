@@ -1,8 +1,8 @@
 .hero {
   position: relative;
-  padding-top: 180px;
-  padding-bottom: 100px;
-  min-height: 92vh;
+  padding-top: 100px;
+  padding-bottom: 40px;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -47,26 +47,29 @@
   max-width: 640px;
 }
 
-.hero__headline {
-  margin-top: 24px;
+/* Doubled class so this beats the shared .h-display size in global.css,
+   which loads later with equal specificity. */
+.hero .hero__headline {
+  margin-top: 16px;
+  font-size: clamp(2.25rem, 4vw, 3.75rem);
 }
 
 .hero__sub {
-  margin-top: 28px;
+  margin-top: 16px;
   max-width: 480px;
 }
 
 .hero__actions {
   display: flex;
   gap: 16px;
-  margin-top: 44px;
+  margin-top: 24px;
   flex-wrap: wrap;
 }
 
 .hero__trust {
   display: flex;
   gap: 32px;
-  margin-top: 48px;
+  margin-top: 28px;
   flex-wrap: wrap;
 }
 

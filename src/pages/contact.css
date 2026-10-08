@@ -84,6 +84,13 @@
   display: block;
 }
 
+.contact-info__address {
+  font-style: normal;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
 .contact-info__social {
   display: flex;
   flex-direction: column;
@@ -182,6 +189,121 @@
 
 .contact-success p {
   margin-bottom: 12px;
+}
+
+/* ---------- Location / map ---------- */
+
+.contact-location {
+  position: relative;
+  z-index: 1;
+  padding-top: 0;
+}
+
+.contact-location__title {
+  margin: 16px 0 32px;
+}
+
+.contact-map {
+  position: relative;
+  height: clamp(360px, 42vw, 520px);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-deep);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
+}
+
+/* Google's embed has no dark style without an API key, so recolour it:
+   invert to dark, rotate hues back, then tint toward the site's violet. */
+.contact-map__frame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: invert(0.92) hue-rotate(200deg) saturate(0.7) brightness(0.9) contrast(0.95);
+}
+
+/* Violet wash and edge fade so the map sits inside the page palette. */
+.contact-map::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(5, 4, 9, 0.55) 0%, transparent 45%),
+    radial-gradient(circle at 70% 40%, rgba(139, 92, 246, 0.12), transparent 60%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+.contact-map__card {
+  position: absolute;
+  z-index: 1;
+  left: 24px;
+  bottom: 24px;
+  display: flex;
+  gap: 16px;
+  max-width: 340px;
+  padding: 20px 22px;
+  border-radius: var(--radius-md);
+  background: rgba(14, 11, 26, 0.78);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.contact-map__icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: var(--accent-soft-violet);
+  background: rgba(139, 92, 246, 0.14);
+  box-shadow: 0 0 0 6px rgba(139, 92, 246, 0.06), 0 0 24px var(--glow-violet-strong);
+}
+
+.contact-map__name {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.contact-map__address {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+
+.contact-map__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: var(--accent-soft-violet);
+}
+
+@media (max-width: 640px) {
+  .contact-map {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .contact-map__frame {
+    height: 320px;
+  }
+  .contact-map::after {
+    display: none;
+  }
+  .contact-map__card {
+    position: static;
+    max-width: none;
+    border-radius: 0;
+    border: 0;
+    border-top: 1px solid var(--border-subtle);
+    box-shadow: none;
+  }
 }
 
 @media (max-width: 900px) {

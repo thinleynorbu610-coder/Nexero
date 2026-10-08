@@ -36,7 +36,7 @@ export const projects = [
       'An online marketplace giving artisans direct digital storefronts, supporting cultural preservation alongside sustainable artisan income.',
     technologies: ['HTML', 'CSS', 'JavaScript', 'UI/UX Design'],
     role: 'Full-stack development and database design.',
-    link: '#',
+    link: 'https://heritage-loom.onrender.com',
     featured: true,
   },
   {
@@ -53,7 +53,7 @@ export const projects = [
       'A QR-driven digital menu and ordering flow that removes manual order-taking and cuts waiting times.',
     technologies: ['JavaScript', 'HTML', 'CSS'],
     role: 'Development and system design.',
-    link: 'https://quickbite-canten.onrender.com',
+    link: 'https://dragon-block.onrender.com',
     featured: true,
   },
   {
