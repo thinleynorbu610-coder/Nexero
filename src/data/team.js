@@ -1,10 +1,11 @@
-// Replace the imported photo below to swap someone's picture — everything else
-// (bio, skills, technologies, responsibilities, social) can be edited freely.
-// Every page on the site reads from this single file.
-import thinleyPhoto from '../assets/team/thinley-norbu.jpg';
-import jamyangPhoto from '../assets/team/jamyang-lodey.jpg';
-import tshewangPhoto from '../assets/team/tshewang-dorji.jpg';
-import yeshiPhoto from '../assets/team/yeshi-ngedup.jpg';
+// Replace a member's `image` with an imported photo to swap their picture —
+// everything else (bio, skills, technologies, responsibilities, social) can be
+// edited freely. Every page on the site reads from this single file.
+import profileIcon from '../assets/team/profile-icon.png';
+
+// Generic avatar shown until a member has a real photo. Cards and the profile
+// page render it centred as a round icon instead of a full-bleed photo.
+export const defaultAvatar = profileIcon;
 
 export const team = [
   {
@@ -12,7 +13,7 @@ export const team = [
     name: 'Thinley Norbu',
     role: 'Full-Stack Developer',
     isLead: false,
-    image: thinleyPhoto,
+    image: defaultAvatar,
     initials: 'TN',
     tagline: 'Builds full web platforms for Bhutan, from wireframe to database.',
     bio: 'Thinley is an Information Technology student focused on full-stack development and human-centered digital products for Bhutan. He designs and builds complete web platforms end to end — from wireframes and UI through to database and backend — and currently leads BhutanCare, a hospital digital platform for appointments and patient services.',
@@ -42,7 +43,7 @@ export const team = [
     name: 'Jamyang Lodey',
     role: 'Backend Developer',
     isLead: false,
-    image: jamyangPhoto,
+    image: defaultAvatar,
     initials: 'JL',
     tagline: 'Turns complex requirements into dependable backend systems.',
     bio: "Jamyang is a Computer Science student focused on backend development and database design, with an additional background in Commerce that shapes how he approaches practical, business-aware solutions. He's currently building Studify (Project SMARTSTUDY), a gamified study planning platform, and has designed database systems ranging from hospital management to network simulations.",
@@ -68,11 +69,41 @@ export const team = [
     },
   },
   {
+    id: 'tshering-tandin-tobden',
+    name: 'Tshering Tandin Tobden',
+    role: 'Backend Developer',
+    isLead: false,
+    image: defaultAvatar,
+    initials: 'TT',
+    tagline: 'Builds the APIs and data layers Nexora’s products run on.',
+    bio: 'Tshering Tandin Tobden is a backend developer at Nexora, focused on building reliable APIs, server-side logic, and well-structured databases that keep applications fast and dependable as they grow.',
+    skills: [
+      'Backend Development',
+      'API Design',
+      'Database Design',
+      'Server-Side Logic',
+      'Problem Solving',
+    ],
+    technologies: ['Go', 'Node.js', 'Python', 'PostgreSQL', 'MySQL', 'Docker', 'Git & GitHub'],
+    responsibilities: [
+      'Building and maintaining backend services and APIs',
+      'Designing and optimising database schemas',
+      'Integrating the backend with front-end features',
+      'Testing and debugging server-side functionality',
+    ],
+    projects: [],
+    social: {
+      github: 'https://github.com/',
+      linkedin: 'https://linkedin.com/',
+      email: 'mailto:tshering@nexora.example',
+    },
+  },
+  {
     id: 'tshewang-dorji',
     name: 'Tshewang Dorji',
     role: 'Team Leader',
     isLead: true,
-    image: tshewangPhoto,
+    image: defaultAvatar,
     initials: 'TD',
     tagline: 'Keeps the team aligned while building intelligent, real-world systems.',
     bio: 'Tshewang is a Computer Science student focused on full-stack and AI-driven development, with a particular interest in robotics and emerging technology. He brings a background in 3D animation and design to technical projects, and recently placed 3rd nationally at the AI4Tarayana Hackathon. He currently leads design and development on Project LHAKGAY and Project RIGPEL.',
@@ -102,7 +133,7 @@ export const team = [
     name: 'Yeshi Ngedup',
     role: 'Cybersecurity Specialist',
     isLead: false,
-    image: yeshiPhoto,
+    image: defaultAvatar,
     initials: 'YN',
     tagline: 'Makes sure what Nexora builds is safe to rely on.',
     bio: 'Yeshi is responsible for keeping Nexora’s applications and infrastructure secure — from assessing risk early in a project to hardening systems before launch. She brings a security-first mindset to every stage of development.',

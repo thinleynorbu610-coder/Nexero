@@ -5,7 +5,7 @@ import TextReveal from '../components/TextReveal';
 import ImageReveal from '../components/ImageReveal';
 import Button from '../components/Button';
 import PageGlow from '../components/PageGlow';
-import { getMemberById } from '../data/team';
+import { getMemberById, defaultAvatar } from '../data/team';
 import { getProjectById } from '../data/projects';
 import './profile.css';
 
@@ -37,7 +37,11 @@ export default function Profile() {
               <div className="profile-hero__portrait-inner">
                 {member.image ? (
                   <ImageReveal fill>
-                    <img src={member.image} alt="" className="profile-hero__photo" />
+                    <img
+                      src={member.image}
+                      alt=""
+                      className={`profile-hero__photo ${member.image === defaultAvatar ? 'profile-hero__photo--avatar' : ''}`}
+                    />
                   </ImageReveal>
                 ) : (
                   <span>{member.initials}</span>

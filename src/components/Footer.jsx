@@ -29,6 +29,7 @@ const columns = [
     links: [
       { label: 'Thinley Norbu', to: '/team/thinley-norbu' },
       { label: 'Jamyang Lodey', to: '/team/jamyang-lodey' },
+      { label: 'Tshering Tandin Tobden', to: '/team/tshering-tandin-tobden' },
       { label: 'Tshewang Dorji', to: '/team/tshewang-dorji' },
       { label: 'Yeshi Ngedup', to: '/team/yeshi-ngedup' },
     ],

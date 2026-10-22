@@ -41,6 +41,16 @@
   object-position: top center;
 }
 
+/* Generic avatar: a round icon centred in the tile instead of a cropped photo. */
+.profile-hero__photo--avatar {
+  width: 66%;
+  height: auto;
+  aspect-ratio: 1;
+  margin: auto;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
 .profile-hero__portrait-inner span {
   font-family: var(--font-display);
   font-size: 5rem;

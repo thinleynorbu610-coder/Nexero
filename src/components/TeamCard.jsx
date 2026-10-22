@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Reveal from './Reveal';
 import ImageReveal from './ImageReveal';
 import useTilt from '../hooks/useTilt';
+import { defaultAvatar } from '../data/team';
 import './team-card.css';
 
 export default function TeamCard({ member, index = 0 }) {
@@ -24,7 +25,11 @@ export default function TeamCard({ member, index = 0 }) {
         >
           {member.image ? (
             <ImageReveal fill>
-              <img src={member.image} alt="" className="team-card__photo" />
+              <img
+                src={member.image}
+                alt=""
+                className={`team-card__photo ${member.image === defaultAvatar ? 'team-card__photo--avatar' : ''}`}
+              />
             </ImageReveal>
           ) : (
             <span className="team-card__initials" aria-hidden="true">

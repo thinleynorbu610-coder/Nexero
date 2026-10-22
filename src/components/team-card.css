@@ -50,6 +50,18 @@
   filter: grayscale(0);
 }
 
+/* Generic avatar: a round icon centred in the tile, nudged above the
+   bottom scrim, rather than a full-bleed cropped photo. */
+.team-card__photo--avatar {
+  inset: 0 0 12%;
+  width: 62%;
+  height: auto;
+  aspect-ratio: 1;
+  margin: auto;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
 .team-card__initials {
   font-family: var(--font-display);
   font-size: 4rem;
@@ -135,8 +147,10 @@
 
 .team-card__info {
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-end;
   justify-content: space-between;
+  gap: 10px 12px;
   padding-top: 18px;
 }
 

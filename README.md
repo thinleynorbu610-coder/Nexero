@@ -49,16 +49,14 @@ where it's used if you need a different size.
 
 ## 4. Replacing team member photos
 
-Open `src/data/team.js`. Each member currently has `image: null` and uses a two-letter
-`initials` placeholder inside a styled portrait card.
+Open `src/data/team.js`. Each member currently has `image: defaultAvatar`, a generic
+round profile icon (`src/assets/team/profile-icon.png`) shown centred in the portrait card.
 
 To add a real photo:
 1. Add the image file to `src/assets/` (e.g. `src/assets/team/thinley.jpg`).
 2. Import it at the top of `team.js`: `import thinleyPhoto from '../assets/team/thinley.jpg';`
-3. Set `image: thinleyPhoto` on that member's object.
-4. In `TeamCard.jsx` and `Profile.jsx`, replace the `<span>{member.initials}</span>`
-   placeholder with `<img src={member.image} alt={member.name} />` (an `image &&` conditional
-   is a good way to keep the initials as a fallback).
+3. Set `image: thinleyPhoto` on that member's object. Any image other than `defaultAvatar`
+   is shown as a full-bleed photo automatically; `image: null` falls back to `initials`.
 
 All other fields on a team member — `bio`, `skills`, `technologies`, `responsibilities`,
 `social`, `projects` — can be edited directly in `team.js` and will update the Team page,

@@ -12,7 +12,7 @@ const values = [
   { title: 'Integrity', desc: 'Being honest about tradeoffs, timelines, and what a project actually needs.' },
   { title: 'Security', desc: 'Treating security as a foundation, not an afterthought.' },
   { title: 'Continuous Learning', desc: 'Staying current as tools, threats, and best practices evolve.' },
-  { title: 'Teamwork', desc: 'Four specialists moving as one team toward a shared standard.' },
+  { title: 'Teamwork', desc: 'Five specialists moving as one team toward a shared standard.' },
 ];
 
 export default function About() {
@@ -30,7 +30,7 @@ export default function About() {
             </TextReveal>
             <Reveal delay={0.2}>
               <p className="body-lg about-hero__sub">
-                Four specialists — one team — building secure, scalable software with the
+                Five specialists — one team — building secure, scalable software with the
                 craft of people who care how it&rsquo;s built, not just that it ships.
               </p>
             </Reveal>
@@ -79,8 +79,8 @@ export default function About() {
             </Reveal>
             <Reveal delay={0.1}>
               <p className="body-lg">
-                We're four specialists — two backend developers, a team leader,
-                and a cybersecurity specialist — working closely enough that
+                We're five specialists — a full-stack developer, two backend developers,
+                a team leader, and a cybersecurity specialist — working closely enough that
                 nothing falls through the gap between disciplines. That size lets
                 us stay hands-on with every project we take on, rather than
                 spreading thin across too many clients at once.

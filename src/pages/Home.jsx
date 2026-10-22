@@ -29,7 +29,7 @@ const principles = [
   },
   {
     title: 'Collaboration',
-    desc: 'Four specialists working as one team, not four separate freelancers.',
+    desc: 'Five specialists working as one team, not five separate freelancers.',
   },
 ];
 
@@ -47,7 +47,7 @@ export default function Home() {
             </Reveal>
             <Reveal delay={0.08}>
               <h2 className="h-xl intro-grid__headline">
-                Four minds. One vision. Infinite possibilities.
+                Five minds. One vision. Infinite possibilities.
               </h2>
             </Reveal>
             <Reveal delay={0.16} className="intro-grid__desc">
@@ -109,7 +109,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="Our Team"
             title="The People Behind Nexora"
-            description="Four specialists, one team — covering backend engineering, leadership, and security."
+            description="Five specialists, one team — covering backend engineering, leadership, and security."
           />
           <div className="team-grid">
             {team.map((member, i) => (
