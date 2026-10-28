@@ -52,7 +52,7 @@
 
 /* Generic avatar: a round icon centred in the tile, nudged above the
    bottom scrim, rather than a full-bleed cropped photo. */
-.team-card__photo--avatar {
+.team-card__portrait .team-card__photo--avatar {
   inset: 0 0 12%;
   width: 62%;
   height: auto;

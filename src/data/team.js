@@ -2,6 +2,8 @@
 // everything else (bio, skills, technologies, responsibilities, social) can be
 // edited freely. Every page on the site reads from this single file.
 import profileIcon from '../assets/team/profile-icon.png';
+import thinleyPhoto from '../assets/team/thinley-norbu.jpg';
+import tshewangPhoto from '../assets/team/tshewang-dorji.jpg';
 
 // Generic avatar shown until a member has a real photo. Cards and the profile
 // page render it centred as a round icon instead of a full-bleed photo.
@@ -13,7 +15,9 @@ export const team = [
     name: 'Thinley Norbu',
     role: 'Full-Stack Developer',
     isLead: false,
-    image: defaultAvatar,
+    image: thinleyPhoto,
+    // How the photo sits in the round profile frame (all fields optional).
+    photoFrame: { position: '50% 50%', zoom: 1.8, origin: '51% 41%' },
     initials: 'TN',
     tagline: 'Builds full web platforms for Bhutan, from wireframe to database.',
     bio: 'Thinley is an Information Technology student focused on full-stack development and human-centered digital products for Bhutan. He designs and builds complete web platforms end to end — from wireframes and UI through to database and backend — and currently leads BhutanCare, a hospital digital platform for appointments and patient services.',
@@ -103,7 +107,8 @@ export const team = [
     name: 'Tshewang Dorji',
     role: 'Team Leader',
     isLead: true,
-    image: defaultAvatar,
+    image: tshewangPhoto,
+    photoFrame: { position: '50% 62%', zoom: 2, origin: '51% 40%' },
     initials: 'TD',
     tagline: 'Keeps the team aligned while building intelligent, real-world systems.',
     bio: 'Tshewang is a Computer Science student focused on full-stack and AI-driven development, with a particular interest in robotics and emerging technology. He brings a background in 3D animation and design to technical projects, and recently placed 3rd nationally at the AI4Tarayana Hackathon. He currently leads design and development on Project LHAKGAY and Project RIGPEL.',
@@ -161,3 +166,7 @@ export const team = [
 ];
 
 export const getMemberById = (id) => team.find((member) => member.id === id);
+
+// Order used on the Team page and for profile numbers (01, 02, …): the team
+// leader first, everyone else in the order above.
+export const teamInDisplayOrder = [...team].sort((a, b) => Number(b.isLead) - Number(a.isLead));

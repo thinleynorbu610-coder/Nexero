@@ -1,5 +1,20 @@
+/* ---------- Hero ---------- */
+
 .profile-hero {
-  padding: clamp(140px, 18vw, 180px) 0 clamp(56px, 6vw, 80px);
+  position: relative;
+  overflow: hidden;
+  padding: clamp(130px, 15vw, 160px) 0 clamp(40px, 5vw, 64px);
+}
+
+.profile-hero__orb {
+  position: absolute;
+  top: 60px;
+  right: -140px;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle at 30% 30%, rgba(139, 92, 246, 0.55), rgba(99, 102, 241, 0.12) 60%, transparent 72%);
 }
 
 .profile-back {
@@ -8,25 +23,40 @@
   gap: 8px;
   font-size: 0.9rem;
   color: var(--text-secondary);
-  margin-bottom: 40px;
+  margin-bottom: 36px;
 }
 
 .profile-hero__grid {
   display: grid;
-  grid-template-columns: 0.55fr 1.45fr;
-  gap: 56px;
+  grid-template-columns: minmax(240px, 400px) 1fr;
+  gap: clamp(36px, 5vw, 72px);
   align-items: center;
 }
 
-.profile-hero__portrait-inner {
+.profile-hero__portrait {
   position: relative;
-  aspect-ratio: 3 / 4;
-  border-radius: var(--radius-lg);
+  margin-left: 14px;
+}
+
+/* Violet circle offset behind the photo, showing as a crescent on its left */
+.profile-hero__portrait::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  transform: translateX(-14px);
+  background: linear-gradient(180deg, var(--accent-violet), var(--accent-indigo));
+}
+
+.profile-hero__frame {
+  position: relative;
+  z-index: 1;
+  aspect-ratio: 1;
+  border-radius: 50%;
   overflow: hidden;
   background: linear-gradient(165deg, var(--bg-card) 0%, var(--bg-deep) 100%);
-  -webkit-backdrop-filter: blur(var(--blur-glass));
-  backdrop-filter: blur(var(--blur-glass));
   border: 1px solid var(--border-bright);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,70 +68,104 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top center;
+  /* Per-photo framing from a member's `photoFrame` in team.js */
+  object-position: var(--photo-position, top center);
+  transform: translateY(var(--photo-shift, 0)) scale(var(--photo-zoom, 1));
+  transform-origin: var(--photo-origin, 50% 0%);
+  filter: grayscale(1);
+  transition: filter var(--duration-slow) var(--ease-standard);
 }
 
-/* Generic avatar: a round icon centred in the tile instead of a cropped photo. */
-.profile-hero__photo--avatar {
-  width: 66%;
-  height: auto;
-  aspect-ratio: 1;
-  margin: auto;
+.profile-hero__frame:hover .profile-hero__photo {
+  filter: grayscale(0);
+}
+
+/* The round icon fills the circular frame edge to edge */
+.profile-hero__frame .profile-hero__photo--avatar {
   object-fit: contain;
   border-radius: 50%;
+  transform: none;
 }
 
-.profile-hero__portrait-inner span {
+.profile-hero__initials {
   font-family: var(--font-display);
   font-size: 5rem;
   font-weight: 800;
   color: var(--tile-ink);
 }
 
-.profile-hero__badge {
-  display: inline-block;
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: var(--bg-deep);
-  background: var(--text-primary);
-  padding: 6px 14px;
-  border-radius: 999px;
-  margin-bottom: 20px;
+.profile-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
 }
 
+/* Trailing rule after the eyebrow, as in "01 / TEAM MEMBER ——" */
+.profile-hero__eyebrow::after {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: currentColor;
+}
+
+.profile-hero__copy {
+  min-width: 0;
+}
+
+/* The animated words have no spaces between them, so wrap them as flex
+   items — long names like "Tshering Tandin Tobden" break onto new lines. */
 .profile-hero__name {
-  margin-bottom: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 14px;
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5.4vw, 4.4rem);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+/* Last name in solid violet rather than the site-wide white→violet fade */
+.profile-hero__name .text-reveal__word--accent {
+  background: none;
+  color: var(--accent-violet);
 }
 
 .profile-hero__role {
+  margin-top: 18px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   color: var(--accent-soft-violet);
-  margin-bottom: 24px;
 }
 
-.profile-hero__bio {
-  max-width: 620px;
-  margin-bottom: 32px;
+.profile-hero__rule {
+  display: block;
+  width: 36px;
+  height: 2px;
+  margin: 18px 0 20px;
+  border-radius: 2px;
+  background: var(--accent-violet);
 }
 
-.profile-hero__actions {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  flex-wrap: wrap;
+.profile-hero__tagline {
+  max-width: 460px;
 }
 
 .profile-hero__social {
   display: flex;
-  gap: 10px;
+  gap: 12px;
+  margin-top: 28px;
 }
 
 .profile-hero__social a {
   width: 42px;
   height: 42px;
-  border-radius: 50%;
-  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  border: 1px solid var(--border-bright);
+  background: var(--bg-card);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -111,102 +175,265 @@
 }
 
 .profile-hero__social a:hover {
-  border-color: var(--border-bright);
+  border-color: var(--accent-violet);
   color: var(--text-primary);
-  transform: scale(1.1);
+  transform: translateY(-2px);
 }
 
-.profile-detail__grid {
+/* ---------- Sections ---------- */
+
+.profile-section {
+  padding: clamp(28px, 4vw, 44px) 0;
+}
+
+.profile-section--first {
+  padding-top: clamp(24px, 3vw, 40px);
+}
+
+.profile-section--last {
+  padding-bottom: clamp(80px, 10vw, 120px);
+}
+
+/* Heading with a short violet rule after it, as in "About Me ——" */
+.profile-section-title {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 22px;
+}
+
+.profile-section-title::after {
+  content: '';
+  width: 32px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--accent-violet);
+}
+
+.profile-panel {
+  padding: clamp(24px, 3vw, 32px);
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+}
+
+.profile-about {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 48px;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
 }
 
-.profile-detail__block--full {
-  grid-column: 1 / -1;
+.profile-panel__text {
+  color: var(--text-secondary);
+  line-height: 1.75;
 }
 
-.profile-detail__block p.eyebrow {
-  margin-bottom: 20px;
-}
-
-.tag-list {
+.profile-pills {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
 }
 
-.tag-list li {
+.profile-pills li {
   font-size: 0.85rem;
   padding: 8px 16px;
   border-radius: 999px;
-  border: 1px solid var(--border-subtle);
-  color: var(--text-secondary);
+  border: 1px solid rgba(139, 92, 246, 0.35);
+  background: rgba(139, 92, 246, 0.08);
+  color: var(--text-primary);
 }
 
-.profile-detail__list {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px 32px;
-}
-
-.profile-detail__list li {
-  padding-left: 20px;
-  position: relative;
-  color: var(--text-secondary);
-  line-height: 1.6;
-}
-
-.profile-detail__list li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 10px;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--text-muted);
-}
-
-.profile-projects__title {
-  margin: 16px 0 32px;
-}
-
-.profile-projects__list {
-  display: flex;
-  flex-direction: column;
-}
-
-.profile-projects__item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 24px 0;
+.profile-pills--soft {
+  margin-top: 16px;
+  padding-top: 16px;
   border-top: 1px solid var(--border-subtle);
 }
 
-.profile-projects__item h3 {
-  margin-top: 8px;
+.profile-pills--soft li {
+  border-color: var(--border-subtle);
+  background: transparent;
+  color: var(--text-secondary);
 }
 
-.profile-projects__link {
-  display: inline-flex;
+/* ---------- What I Do ---------- */
+
+.profile-work {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.profile-work__card {
+  height: 100%;
+  padding: 26px 24px;
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  transition: border-color var(--duration-base) var(--ease-standard),
+    transform var(--duration-base) var(--ease-standard);
+}
+
+.profile-work__card:hover {
+  border-color: var(--glow-violet-strong);
+  transform: translateY(-3px);
+}
+
+.profile-work__icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  background: rgba(139, 92, 246, 0.14);
+  color: var(--accent-soft-violet);
+  margin-bottom: 18px;
+}
+
+.profile-work__text {
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+/* ---------- Selected Projects ---------- */
+
+.profile-projects {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.profile-project {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 22px;
+  align-items: center;
+  height: 100%;
+  padding: 14px 22px 14px 14px;
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  transition: border-color var(--duration-base) var(--ease-standard),
+    transform var(--duration-base) var(--ease-standard);
+}
+
+.profile-project:hover {
+  border-color: var(--glow-violet-strong);
+  transform: translateY(-3px);
+}
+
+.profile-project__media {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: linear-gradient(165deg, rgba(139, 92, 246, 0.25), var(--bg-deep));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-project__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-project__media span {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--accent-soft-violet);
+}
+
+.profile-project__category {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-soft-violet);
+}
+
+.profile-project__title {
+  display: flex;
   align-items: center;
   gap: 6px;
+  margin-top: 6px;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
   font-weight: 600;
+  color: var(--text-primary);
+}
+
+.profile-project__desc {
+  margin-top: 8px;
   font-size: 0.9rem;
-  flex-shrink: 0;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1024px) {
+  .profile-projects {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 900px) {
   .profile-hero__grid {
+    grid-template-columns: minmax(200px, 260px) 1fr;
+    gap: 36px;
+  }
+  .profile-about {
     grid-template-columns: 1fr;
   }
-  .profile-hero__portrait-inner {
-    max-width: 280px;
-  }
-  .profile-detail__grid,
-  .profile-detail__list {
+}
+
+@media (max-width: 700px) {
+  .profile-hero__grid {
     grid-template-columns: 1fr;
+  }
+  .profile-hero__portrait {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 560px) {
+  .profile-hero__portrait {
+    max-width: 260px;
+  }
+  /* Compact rows on phones: icon/thumbnail beside the text, not above it */
+  .profile-work {
+    gap: 12px;
+  }
+  .profile-work__card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 18px;
+  }
+  .profile-work__icon {
+    flex-shrink: 0;
+    margin-bottom: 0;
+  }
+  .profile-project {
+    grid-template-columns: 96px 1fr;
+    gap: 14px;
+    padding: 12px;
+  }
+  .profile-project__desc {
+    -webkit-line-clamp: 2;
+  }
+  .profile-hero__orb {
+    display: none;
   }
 }
