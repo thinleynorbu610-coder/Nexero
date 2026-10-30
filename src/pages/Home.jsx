@@ -11,7 +11,7 @@ import Reveal from '../components/Reveal';
 import Button from '../components/Button';
 import { services } from '../data/services';
 import { projects } from '../data/projects';
-import { team } from '../data/team';
+import { teamInDisplayOrder as team } from '../data/team';
 import './home.css';
 
 const principles = [

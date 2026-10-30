@@ -35,7 +35,7 @@ export default function Services() {
             <Reveal>
               <p className="eyebrow">Services</p>
             </Reveal>
-            <TextReveal as="h1" className="h-display" delay={0.08} inView={false} accentCount={1}>
+            <TextReveal as="h1" className="h-display services-hero__title" delay={0.08} inView={false} accentCount={1}>
               Technology That Moves Ideas Forward.
             </TextReveal>
             <Reveal delay={0.2}>

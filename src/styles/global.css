@@ -87,7 +87,9 @@ ul {
 
 /* Type scale */
 .h-display {
-  font-size: clamp(2.75rem, 6vw, 5.5rem);
+  /* Page-hero headline size (About, Projects, Services, Contact) */
+  font-size: clamp(2.2rem, 4.4vw, 4rem);
+  line-height: 1.08;
   /* 600, not 800 — Google Fonts only serves Manrope at 400/500/600/700/800
      (see index.html), and the brief calls for 500–650, not ultra-bold. */
   font-weight: 600;

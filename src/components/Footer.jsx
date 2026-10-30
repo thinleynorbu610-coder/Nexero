@@ -1,6 +1,7 @@
 import { ArrowUp, Github, Linkedin, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Logo from './Logo';
+import { teamInDisplayOrder } from '../data/team';
 import './footer.css';
 
 const columns = [
@@ -26,13 +27,8 @@ const columns = [
   },
   {
     title: 'Team',
-    links: [
-      { label: 'Thinley Norbu', to: '/team/thinley-norbu' },
-      { label: 'Jamyang Lodey', to: '/team/jamyang-lodey' },
-      { label: 'Tshering Tandin Tobden', to: '/team/tshering-tandin-tobden' },
-      { label: 'Tshewang Dorji', to: '/team/tshewang-dorji' },
-      { label: 'Yeshi Ngedup', to: '/team/yeshi-ngedup' },
-    ],
+    // Same order as the Team page (leader first), straight from team.js
+    links: teamInDisplayOrder.map((m) => ({ label: m.name, to: `/team/${m.id}` })),
   },
 ];
 

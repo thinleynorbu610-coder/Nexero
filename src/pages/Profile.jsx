@@ -1,9 +1,11 @@
+import { useEffect } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import {
   Github,
   Linkedin,
   Mail,
   ArrowLeft,
+  ArrowRight,
   ArrowUpRight,
   Code,
   Server,
@@ -11,17 +13,48 @@ import {
   Users,
   Database,
   Shield,
+  Palette,
+  Sparkles,
+  Workflow,
+  Bug,
 } from 'lucide-react';
 import Reveal from '../components/Reveal';
 import TextReveal from '../components/TextReveal';
 import ImageReveal from '../components/ImageReveal';
-import PageGlow from '../components/PageGlow';
+import Button from '../components/Button';
+import campusBg from '../assets/hero/profile-campus.jpg';
 import { getMemberById, defaultAvatar, teamInDisplayOrder } from '../data/team';
 import { getProjectById } from '../data/projects';
 import './profile.css';
 
-// Icons cycled across the "What I Do" cards.
-const WORK_ICONS = [Code, Server, Layers, Users, Database, Shield];
+// What the Contact panel shows next to each link: the email address itself,
+// or the profile path for GitHub / LinkedIn (or a plain label for a bare link).
+const contactValue = (label, href) => {
+  if (href.startsWith('mailto:')) return href.slice('mailto:'.length);
+  const path = href.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '');
+  return path.includes('/') ? path : `View ${label}`;
+};
+
+// "See My Work" scrolls down to the projects (or What I Do if there are none)
+const seeWork = () => {
+  document.getElementById('work')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+};
+
+// "What I Do" icon picked from what the responsibility is about; the first
+// matching rule wins, and Layers is the fallback.
+const WORK_ICON_RULES = [
+  [/secur|threat|harden|penetration/i, Shield],
+  [/test|debug/i, Bug],
+  [/database|data model|schema/i, Database],
+  [/lead|coordinat|team|review/i, Users],
+  [/design|interface|ui\b|ux/i, Palette],
+  [/gamif|engagement|ai[- ]driven|intelligen/i, Sparkles],
+  [/agile|plan|process|direction/i, Workflow],
+  [/backend|api|server|service/i, Server],
+  [/front-end|frontend|build|platform|develop/i, Code],
+];
+
+const iconFor = (text) => (WORK_ICON_RULES.find(([re]) => re.test(text)) || [null, Layers])[1];
 
 function SectionTitle({ children }) {
   return <h2 className="profile-section-title">{children}</h2>;
@@ -31,11 +64,19 @@ export default function Profile() {
   const { id } = useParams();
   const member = getMemberById(id);
 
+  useEffect(() => {
+    if (member) document.title = `${member.name} — ${member.role} | Nexora`;
+  }, [member]);
+
   if (!member) {
     return <Navigate to="/team" replace />;
   }
 
-  const number = String(teamInDisplayOrder.indexOf(member) + 1).padStart(2, '0');
+  const position = teamInDisplayOrder.indexOf(member);
+  const number = String(position + 1).padStart(2, '0');
+  const count = teamInDisplayOrder.length;
+  const prevMember = teamInDisplayOrder[(position - 1 + count) % count];
+  const nextMember = teamInDisplayOrder[(position + 1) % count];
   const isAvatar = member.image === defaultAvatar;
   const frame = member.photoFrame;
   const nameWords = member.name.split(' ');
@@ -54,11 +95,15 @@ export default function Profile() {
 
   return (
     <div className="profile-page">
-      {/* ---------- Hero ---------- */}
+      {/* ---------- Hero banner (campus photo behind a dark overlay) ---------- */}
       <section className="profile-hero page-hero">
-        <PageGlow />
-        <span className="profile-hero__orb" aria-hidden="true" />
-        <div className="container">
+        <div
+          className="profile-hero__bg"
+          style={{ backgroundImage: `url(${campusBg})` }}
+          aria-hidden="true"
+        />
+        <div className="profile-hero__overlay" aria-hidden="true" />
+        <div className="container profile-hero__inner">
           <Reveal>
             <Link to="/team" className="profile-back link-underline">
               <ArrowLeft size={16} /> Back to Team
@@ -99,9 +144,9 @@ export default function Profile() {
                 className="profile-hero__name"
                 delay={0.06}
                 inView={false}
-                accentCount={1}
+                accentCount={nameWords.length + 1}
               >
-                {firstNames ? `${firstNames} ${lastName}` : lastName}
+                {`Hi, I’m ${firstNames ? `${firstNames} ${lastName}` : lastName}`}
               </TextReveal>
               <Reveal delay={0.12}>
                 <p className="profile-hero__role">{member.role}</p>
@@ -110,24 +155,21 @@ export default function Profile() {
               <Reveal delay={0.18}>
                 <p className="body-lg profile-hero__tagline">{member.tagline}</p>
               </Reveal>
-              <Reveal delay={0.24} className="profile-hero__social">
-                {socials.map(({ href, label, Icon, external }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    aria-label={`${member.name} on ${label}`}
-                    {...(external ? { target: '_blank', rel: 'noreferrer' } : {})}
-                  >
-                    <Icon size={17} />
-                  </a>
-                ))}
+              <Reveal delay={0.24} className="profile-hero__actions">
+                <Button as="button" variant="primary" onClick={seeWork}>
+                  See My Work
+                </Button>
+                <Button to="/contact" variant="ghost">
+                  Get in Touch
+                </Button>
               </Reveal>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ---------- About + Skills ---------- */}
+      <div className="profile-body">
+      {/* ---------- About · Skills · Contact ---------- */}
       <section className="profile-section profile-section--first">
         <div className="container profile-about">
           <Reveal className="profile-panel">
@@ -136,7 +178,7 @@ export default function Profile() {
           </Reveal>
 
           <Reveal delay={0.08} className="profile-panel">
-            <SectionTitle>Skills &amp; Expertise</SectionTitle>
+            <SectionTitle>Skills</SectionTitle>
             <ul className="profile-pills">
               {member.technologies.map((t) => (
                 <li key={t}>{t}</li>
@@ -148,18 +190,40 @@ export default function Profile() {
               ))}
             </ul>
           </Reveal>
+
+          <Reveal delay={0.16} className="profile-panel">
+            <SectionTitle>Contact</SectionTitle>
+            <ul className="profile-contact">
+              {socials.map(({ href, label, Icon, external }) => (
+                <li key={label}>
+                  <a href={href} {...(external ? { target: '_blank', rel: 'noreferrer' } : {})}>
+                    <span className="profile-contact__icon" aria-hidden="true">
+                      <Icon size={16} />
+                    </span>
+                    <span className="profile-contact__text">
+                      <span className="profile-contact__label">{label}</span>
+                      <span className="profile-contact__value">{contactValue(label, href)}</span>
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <Link to="/contact" className="profile-contact__cta link-underline">
+              Send a message <ArrowRight size={14} />
+            </Link>
+          </Reveal>
         </div>
       </section>
 
       {/* ---------- What I Do ---------- */}
-      <section className="profile-section">
+      <section className="profile-section" id={relatedProjects.length ? undefined : 'work'}>
         <div className="container">
           <Reveal>
             <SectionTitle>What I Do</SectionTitle>
           </Reveal>
           <div className="profile-work">
             {member.responsibilities.map((r, i) => {
-              const Icon = WORK_ICONS[i % WORK_ICONS.length];
+              const Icon = iconFor(r);
               return (
                 <Reveal delay={Math.min(i * 0.06, 0.24)} className="profile-work__card" key={r}>
                   <span className="profile-work__icon" aria-hidden="true">
@@ -175,7 +239,7 @@ export default function Profile() {
 
       {/* ---------- Selected Projects ---------- */}
       {relatedProjects.length > 0 && (
-        <section className="profile-section profile-section--last">
+        <section className="profile-section profile-section--last" id="work">
           <div className="container">
             <Reveal>
               <SectionTitle>Selected Projects</SectionTitle>
@@ -212,6 +276,25 @@ export default function Profile() {
           </div>
         </section>
       )}
+
+      {/* ---------- Previous / next member ---------- */}
+      <nav className="profile-nav container" aria-label="Other team members">
+        <Link to={`/team/${prevMember.id}`} className="profile-nav__link">
+          <span className="profile-nav__dir">
+            <ArrowLeft size={15} /> Previous
+          </span>
+          <span className="profile-nav__name">{prevMember.name}</span>
+          <span className="profile-nav__role">{prevMember.role}</span>
+        </Link>
+        <Link to={`/team/${nextMember.id}`} className="profile-nav__link profile-nav__link--next">
+          <span className="profile-nav__dir">
+            Next <ArrowRight size={15} />
+          </span>
+          <span className="profile-nav__name">{nextMember.name}</span>
+          <span className="profile-nav__role">{nextMember.role}</span>
+        </Link>
+      </nav>
+      </div>
     </div>
   );
 }
