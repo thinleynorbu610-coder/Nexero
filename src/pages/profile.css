@@ -498,7 +498,9 @@
 
 /* ---------- Previous / next member ---------- */
 
-.profile-nav {
+/* Also carries .container, whose `padding: 0 …` loads later and would wipe
+   these out — the doubled class keeps the space above and below the cards. */
+.profile-nav.container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
@@ -610,7 +612,7 @@
   .profile-project__desc {
     -webkit-line-clamp: 2;
   }
-  .profile-nav {
+  .profile-nav.container {
     grid-template-columns: 1fr;
     gap: 12px;
   }
