@@ -276,6 +276,17 @@
   align-items: start;
 }
 
+/* Let panels shrink to their column: without this a long one-line value
+   (e.g. a LinkedIn address) stretches the panels past the screen edge. */
+.profile-about > * {
+  min-width: 0;
+}
+
+.profile-contact a,
+.profile-contact__text {
+  min-width: 0;
+}
+
 /* ---------- Contact panel ---------- */
 
 .profile-contact {
