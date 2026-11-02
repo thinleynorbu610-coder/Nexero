@@ -18,15 +18,15 @@
   width: 100%;
 }
 
-/* Campus photo filling the banner, softened and darkened so the text and
+/* Auditorium photo filling the banner, softened and darkened so the text and
    portrait stay readable on top of it. */
 .profile-hero__bg {
   position: absolute;
   inset: -12px;
   z-index: -2;
   background-size: cover;
-  background-position: center 45%;
-  /* Full colour, a little richer: warm buildings against the blue sky */
+  background-position: center 40%;
+  /* Full colour, a little richer: warm wood room with the lit screens */
   filter: saturate(1.25) contrast(1.1) brightness(1.05);
   transform: scale(1.02);
 }

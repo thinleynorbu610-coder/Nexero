@@ -22,7 +22,7 @@ import Reveal from '../components/Reveal';
 import TextReveal from '../components/TextReveal';
 import ImageReveal from '../components/ImageReveal';
 import Button from '../components/Button';
-import campusBg from '../assets/hero/profile-campus.jpg';
+import profileBg from '../assets/hero/profile-auditorium.jpg';
 import { getMemberById, defaultAvatar, teamInDisplayOrder } from '../data/team';
 import { getProjectById } from '../data/projects';
 import './profile.css';
@@ -95,11 +95,11 @@ export default function Profile() {
 
   return (
     <div className="profile-page">
-      {/* ---------- Hero banner (campus photo behind a dark overlay) ---------- */}
+      {/* ---------- Hero banner (auditorium photo behind a dark overlay) ---------- */}
       <section className="profile-hero page-hero">
         <div
           className="profile-hero__bg"
-          style={{ backgroundImage: `url(${campusBg})` }}
+          style={{ backgroundImage: `url(${profileBg})` }}
           aria-hidden="true"
         />
         <div className="profile-hero__overlay" aria-hidden="true" />
